@@ -6,7 +6,7 @@ const showTask = document.querySelector('#show-task');
 const editTaskBox = document.querySelector('#edit-task');
 const editForm = document.querySelector('#edit-task-form');
 
-let taskArr = [];
+let taskArr = JSON.parse(localStorage.getItem('task')) || [];
 
 let currentEditIndex = null;
 
@@ -72,6 +72,7 @@ form.addEventListener('submit', (e) => {
             status: 'pending',
         }
     );
+    localStorage.setItem("task", JSON.stringify(taskArr));
     ui();
     form.reset();
 });
@@ -91,7 +92,7 @@ editForm.addEventListener('submit', (e) => {
         taskArr[currentEditIndex].tName = editForm[0].value;
         taskArr[currentEditIndex].tDescription = editForm[1].value;
         taskArr[currentEditIndex].tCategory = editForm[2].value;
-
+        localStorage.setItem("task", JSON.stringify(taskArr));
         ui();
         editTaskBox.style.display = 'none';
         currentEditIndex = null;
@@ -100,7 +101,7 @@ editForm.addEventListener('submit', (e) => {
 
 const dltTask = (index)=>{
     taskArr.splice(index,1);
-    console.log(taskArr);
+    localStorage.setItem("task", JSON.stringify(taskArr));
     ui();
 }
 
@@ -132,5 +133,6 @@ const rejectTask = (index)=>{
 
 const rstTask = ()=>{
     taskArr = [];
+    localStorage.setItem("task", JSON.stringify(taskArr));
     ui();
 }
