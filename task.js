@@ -56,6 +56,8 @@ const ui = ()=>{
     })
 }
 
+ui();
+
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     let taskN = taskName.value;
