@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link
+            href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="task.css">
+    <title>Task Manager | Home</title>
+</head>
+<body>
+<nav>
+    <div class="logo-box">
+        <h2>TASK MANAGER</h2>
+    </div>
+    <div class="search-task">
+        <input type="text" placeholder="Search your task here">
+        <i class="ri-search-line"></i>
+    </div>
+
+    <div class="credential">
+        <div class="theme">
+            <i class="ri-sun-fill"></i>
+<!--            <i class="ri-moon-clear-fill"></i>-->
+        </div>
+        <button id="sign-up">Sign up</button>
+        <button id="sign-in">Sign in</button>
+    </div>
+</nav>
+
+<section id="create-task">
+    <h3>What's task for today!?</h3>
+    <form id="create-task-form">
+        <input type="text" required class="task-name" placeholder="Task name">
+        <input type="text" required class="task-description" placeholder="Task description">
+
+        <select  class="task-category">
+            <option value="">Choose Category</option>
+            <option value="Personal">Personal</option>
+            <option value="Office">Office</option>
+            <option value="Gym">Gym</option>
+            <option value="Spiritual">Spiritual</option>
+        </select>
+        <button type="submit" id="crt-task" title="Create a new task">Create</button>
+        <button type="button" id="rst-task" onclick="rstTask()" title="Reset all tasks to zero">Reset</button>
+    </form>
+</section>
+
+<section id="show-task">
+</section>
+
+<section id="edit-task">
+    <main>
+        <h3>Edit task</h3>
+        <form id="edit-task-form">
+            <div class="edit-inputs">
+                <input type="text" placeholder="New Task name" class="new-taskName">
+                <input type="text" placeholder="New Task description" class="new-taskDescription">
+                <select>
+                    <option value="">Choose Category</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Office">Office</option>
+                    <option value="Gym">Gym</option>
+                    <option value="Spiritual">Spiritual</option>
+                </select>
+            </div>
+            <div class="edit-btns">
+                <button type="submit" class="edit-btn">Edit</button>
+                <button type="submit" class="cncl-btn">Cancel</button>
+            </div>
+        </form>
+    </main>
+</section>
+
+<script src="task.js"></script>
+</body>
+</html>

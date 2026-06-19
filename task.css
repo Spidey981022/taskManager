@@ -1,0 +1,286 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+    background: #000;
+    font-family: 'Montserrat', sans-serif;
+    color: antiquewhite;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+    background-color: skyblue;
+    padding: 10px;
+    .logo-box h2{
+        font-size: 20px;
+    }
+    .search-task{
+        position: relative;
+        height: 70px;
+        width: 20%;
+        display: flex;
+        align-items: center;
+        input{
+            text-indent: 20px;
+            height: 70%;
+            width: 100%;
+            font-size: 15px;
+            border-radius: 10px;
+            border: none;
+        }
+        i{
+            position: absolute;
+            right: 0;
+            height: 70%;
+            width: 40px;
+            display: grid;
+            place-items: center;
+            color: black;
+            border-radius: 10px;
+        }
+    }
+    .credential{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 20%;
+        height: 70px;
+        .theme{
+            height: 40px;
+            width: 40px;
+            border-radius: 50px;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+            color: yellow;
+        }
+        button{
+            cursor: not-allowed;
+            height: 70%;
+            width: 30%;
+            border: none;
+            border-radius: 10px;
+            &:first-child{
+                background-color: darkgoldenrod;
+            }
+        }
+    }
+}
+
+section#create-task{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    form{
+        display: flex;
+        gap: 5px;
+        justify-content: center;
+        width: 100%;
+        input.task-name{
+            width: 10%;
+            height: 40px;
+            text-indent: 10px;
+        }
+        input.task-description{
+            width: 20%;
+            text-indent: 10px;
+        }
+        select.task-category option[value=""] {
+            color: grey;
+        }
+        button{
+            width: 5%;
+            border: none;
+        }
+        button#crt-task{
+            background-color: #1da61d;
+            color: white;
+        }
+        button#crt-task:hover{
+            background-color: #31ca31;
+        }
+        button#rst-task{
+            background-color: darkred;
+            color: white;
+        }
+        button#rst-task:hover{
+            background-color: #bc0404;
+        }
+    }
+}
+
+section#show-task{
+    width: 100%;
+    height: 78%;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    /* 2. WebKit pseudo-elements (Chrome, Safari, Edge for advanced styling) */
+    &::-webkit-scrollbar {
+        width: 2px;
+    }
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;           /* Background of the progress bar area */
+        border-radius: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: yellow;              /* The draggable scrolling handle */
+    }
+    .task-box{
+        position: relative;
+        padding: 5px;
+        height: 200px;
+        width: 207px;
+        border: 1px solid white;
+        /*background-color: #bd1f37;*/
+        /*background-color: #668f66;*/
+        /*background-color: #a87e1c;*/
+        border-radius: 10px;
+        .img-category{
+            margin: auto;
+            width: 100%;
+            height: 25%;
+            border: 1px solid white;
+            border-radius: 10px;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+        }
+        .task-name{
+            display: flex;
+            flex-direction: column;
+            h4{
+                padding: 10px;
+                font-size: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: black;
+                span{
+                    margin-left: 10px;
+                    padding: 5px ;
+                    font-size: 8px;
+                    background-color: white;
+                    color: black;
+                    border-radius: 10px;
+                }
+            }
+            p{
+                text-align: center;
+                font-size: 12px;
+                color: black;
+            }
+        }
+        .task-status{
+            position: absolute;
+            background-color: #000;
+            bottom: 10px;
+            width: 95%;
+            height: 13%;
+            border: 1px solid white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+    }
+}
+
+section#edit-task{
+    display: none;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20vw;
+    height: 20vw;
+    background: skyblue;
+    border-radius: 10px;
+    main{
+        h3{
+            text-align: center;
+            color: black;
+        }
+        form{
+            height: 15vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .edit-inputs{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                margin-top: 20px;
+                input.new-taskName{
+                    width: 100%;
+                    height: 40px;
+                    border-radius: 10px;
+                    border: none;
+                    text-indent: 20px;
+                }
+                input.new-taskDescription{
+                    width: 100%;
+                    height: 80px;
+                    border-radius: 10px;
+                    border: none;
+                    text-indent: 20px;
+                    overflow-x: hidden;
+                    text-wrap: wrap;
+                }
+                select{
+                    width: 100%;
+                    height: 40px;
+                    border-radius: 10px;
+                    border: none;
+                    text-indent: 20px;
+                }
+        }
+            .edit-btns{
+                margin-top: 20px;
+                display: flex;
+                justify-content: space-evenly;
+                width: 100%;
+                height: 100px;
+                button{
+                    padding: 10px;
+                    border: none;
+                    width: 30%;
+                    border-radius: 10px;
+                }
+                button.edit-btn{
+                    background-color: #278727;
+                    color: white;
+                }
+                button.edit-btn:hover{
+                    background-color: #299c29;
+                }
+                button.cncl-btn{
+                    background-color: darkred;
+                    color: white;
+                }
+                button.cncl-btn:hover{
+                    background-color: #bd0202;
+                }
+            }
+        }
+    }
+}
